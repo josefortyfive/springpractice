@@ -21,8 +21,27 @@ public class CruddemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			queryForStudents(studentDAO);
+			//queryForStudents(studentDAO);
+
+			queryForStudentByLastName(studentDAO);
 		};
+	}
+
+	private void queryForStudentByLastName(StudentDAO studentDAO) {
+
+		// get a list of student
+		List<Student> theStudent = studentDAO.findByLastName("Benito");
+
+		for(Student student : theStudent){
+
+			if(student == null){
+				System.out.println("No student found!");
+			} else{
+				System.out.println(student);
+			}
+		}
+
+		// display list of students
 	}
 
 	private void queryForStudents(StudentDAO studentDAO) {
