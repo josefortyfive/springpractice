@@ -21,14 +21,29 @@ public class CruddemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
+
+			// createMultipleStudent(studentDAO);
 			//queryForStudents(studentDAO);
 
 			//queryForStudentByLastName(studentDAO);
 
 			//updateStudent(studentDAO);
 
-			deleteStudent(studentDAO);
+			//deleteStudent(studentDAO);
+
+			deleteAllStudent(studentDAO);
 		};
+	}
+
+	private void deleteAllStudent(StudentDAO studentDAO) {
+
+		System.out.println("Deleting all Student...");
+
+		int numberOfRowsDelete = studentDAO.deleteAll();
+
+
+		System.out.println("Number of rows delete: "+numberOfRowsDelete);
+
 	}
 
 	private void deleteStudent(StudentDAO studentDAO) {
