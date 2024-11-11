@@ -11,7 +11,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int Id;
+    private Integer Id;
 
     @Column(name="first_name")
     private String firstName;
@@ -22,6 +22,10 @@ public class Student {
     @Column(name="email")
     private String email;
 
+    public Student(){
+
+    }
+
     // define constructor
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -31,11 +35,11 @@ public class Student {
 
     //define getters/setters
 
-    public int getId() {
+    public Integer getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         Id = id;
     }
 
