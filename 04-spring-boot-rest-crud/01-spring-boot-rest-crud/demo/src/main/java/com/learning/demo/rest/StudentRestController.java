@@ -39,7 +39,7 @@ public class StudentRestController {
 
     @GetMapping("/students/{studentId}")
     public Student getStudent(@PathVariable int studentId){
-        
+
         return students.get(studentId);
     }
 
