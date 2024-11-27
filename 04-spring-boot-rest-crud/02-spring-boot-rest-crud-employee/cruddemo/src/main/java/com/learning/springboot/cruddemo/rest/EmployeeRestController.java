@@ -33,6 +33,7 @@ public class EmployeeRestController {
         return employee;
     }
 
+
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee employee){
 
@@ -42,7 +43,14 @@ public class EmployeeRestController {
         employee.setId(0);
         Employee dbEmployee = employeeService.save(employee);
         return dbEmployee;
-
-
     }
+
+    // Add mapping for PUT /employees - update existing employee
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        Employee dbEmployee = employeeService.save(employee);
+
+        return  dbEmployee;
+    }
+
 }
