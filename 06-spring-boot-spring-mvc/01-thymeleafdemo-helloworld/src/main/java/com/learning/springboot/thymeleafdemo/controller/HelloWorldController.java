@@ -45,7 +45,7 @@ public class HelloWorldController {
     }
 
 
-    @RequestMapping("/processFormVersionThree")
+    @PostMapping("/processFormVersionThree")
     public String processFormVersionThree(@RequestParam("studentName") String name, Model model){
 
         // convert the data to all caps
