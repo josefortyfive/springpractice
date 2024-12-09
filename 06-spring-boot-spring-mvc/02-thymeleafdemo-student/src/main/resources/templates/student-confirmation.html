@@ -8,7 +8,16 @@
 
 <h3>Student Registration Form</h3>
 
-The student is confirmed: <span th:text="${student.firstName}+ ' ' +${student.lastName} + ' from the ' +${student.country}+ ' favorite Programming Language is ' +${student.favoriteLanguage}"/>
+The student is confirmed: <span th:text="${student.firstName}+ ' ' +${student.lastName}"/>
+
+<br><br>
+
+From the <span th:text="${student.country}" />
+
+<br><br>
+
+Favorite Programming Language is <span th:text="${student.favoriteLanguage}"/>
+
 
 </form>
 
