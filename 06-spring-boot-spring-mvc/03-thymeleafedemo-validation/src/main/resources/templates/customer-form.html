@@ -5,9 +5,7 @@
     <title>Customer Registration Form</title>
 
     <style>
-        .error {
-            color:red
-        }
+        .error {color:red}
     </style>
 </head>
 <body>
@@ -16,18 +14,17 @@
 <br><br>
 
 
-<form th:action="@{/processForm}" th:object="customer" method="POST">
+<form th:action="@{/processForm}" th:object="${customer}" method="POST">
 
     First Name: <input type="text" th:field="*{firstName}"/>
     <br><br>
 
-    Last Name: <input type="text" th:field="*{lastName}"/>
-    <br><br>
+    Last Name (*): <input type="text" th:field="*{lastName}"/>
 
     <!-- add error message (if present) -->
 
     <span th:if="${#fields.hasErrors('lastName')}"
-            th:error="*{lastName}"
+            th:errors="*{lastName}"
           class="error"></span>
     <br><br>
 
