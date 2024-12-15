@@ -15,12 +15,6 @@
 
     <hr>
 
-    <!-- Add a link to point to /leaders ... this is for the managers -->
-    <p>
-
-        <a th:href="@{/leaders}">Leadership Meeting</a>
-        (Only for Manager peeps)
-    </p>
 
     <!-- display username and role -->
 
@@ -30,6 +24,16 @@
         Roles (s): <span sec:authentication="principal.authorities"></span>
 
     </p>
+
+    <hr>
+    <!-- Add a link to point to /leaders ... this is for the managers -->
+    <p>
+
+        <a th:href="@{/leaders}">Leadership Meeting</a>
+        (Only for Manager peeps)
+    </p>
+
+    <hr>
     <form action="#" th:action="@{/logout}" method="POST">
 
         <input type="submit" value="Logout" />
