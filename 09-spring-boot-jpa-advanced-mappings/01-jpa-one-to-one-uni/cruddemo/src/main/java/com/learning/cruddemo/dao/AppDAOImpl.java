@@ -4,8 +4,10 @@ import com.learning.cruddemo.entity.Instructor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public class AppDAOImpl implements AppDAO{
 
     // define field for entity manager
