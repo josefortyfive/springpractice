@@ -1,6 +1,7 @@
 package com.learning.cruddemo.dao;
 
 import com.learning.cruddemo.entity.Instructor;
+import com.learning.cruddemo.entity.InstructorDetail;
 
 public interface AppDAO {
 
@@ -9,4 +10,6 @@ public interface AppDAO {
     Instructor findInstructorById(int theId);
 
     void deleteInstructorById(int theId);
+
+    InstructorDetail findInstructorDetailById(int theId);
 }
