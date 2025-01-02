@@ -1,6 +1,7 @@
 package com.learning.cruddemo;
 
 import com.learning.cruddemo.dao.AppDAO;
+import com.learning.cruddemo.entity.Course;
 import com.learning.cruddemo.entity.Instructor;
 import com.learning.cruddemo.entity.InstructorDetail;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -8,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import javax.sound.midi.SysexMessage;
 
 @SpringBootApplication
 public class CruddemoApplication {
@@ -23,8 +26,34 @@ public class CruddemoApplication {
 			// findInstructor(appDAO);
 			// deleteInstructor(appDAO);
 			// findInstructorDetail(appDAO);
-			deleteInstructorDetail(appDAO);
+			// deleteInstructorDetail(appDAO);
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+
+		Instructor tempInstructor = new Instructor("Susan", "Public", "susan@luv2code.com");
+
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube.comW", "Gaming!!!");
+
+
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		Course tempCourse1 = new Course("Air Guitar - Ultimate Guide");
+		Course tempCourse2 = new Course("The Pinball Master Class");
+
+		// add Courses to Instructor
+		tempInstructor.add(tempCourse1);
+		tempInstructor.add(tempCourse2);
+
+		System.out.println("Saving instructor: " +tempInstructor);
+		System.out.println("The courses: "+tempInstructor.getCourses());
+		appDAO.save(tempInstructor);
+
+		System.out.println("Done ..");
+
+
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
