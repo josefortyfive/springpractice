@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import javax.sound.midi.SysexMessage;
+import java.io.FilterOutputStream;
 
 @SpringBootApplication
 public class CruddemoApplication {
@@ -27,8 +28,22 @@ public class CruddemoApplication {
 			// deleteInstructor(appDAO);
 			// findInstructorDetail(appDAO);
 			// deleteInstructorDetail(appDAO);
-			createInstructorWithCourses(appDAO);
+			// createInstructorWithCourses(appDAO);
+
+			findInstructorWithCourses(appDAO);
+
 		};
+	}
+
+	private void findInstructorWithCourses(AppDAO appDAO) {
+
+		int theId = 1;
+		System.out.println("Finding Instructor Id: " +theId);
+
+		Instructor instructor = appDAO.findInstructorById(theId);
+		System.out.println("Instructor:  "+instructor);
+		System.out.println("The associated courses: " +instructor.getCourses());
+		System.out.println("Done!");
 	}
 
 	private void createInstructorWithCourses(AppDAO appDAO) {
