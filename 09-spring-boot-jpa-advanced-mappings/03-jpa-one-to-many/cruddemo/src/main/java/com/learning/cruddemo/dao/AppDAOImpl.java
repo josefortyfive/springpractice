@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 @Repository
@@ -81,6 +82,21 @@ public class AppDAOImpl implements AppDAO{
 
         return courses;
 
+    }
+
+    @Override
+    public Instructor findInstructorByIdJoinFetch(int theId) {
+        TypedQuery<Instructor> query = entityManager.createQuery(
+                "select i from Instructor i "
+                            + "JOIN FETCH i.courses "
+                            + "where i.id = :data", Instructor.class
+        );
+
+        query.setParameter("data", theId);
+
+        Instructor instructor = query.getSingleResult();
+
+        return instructor;
     }
 
 }
