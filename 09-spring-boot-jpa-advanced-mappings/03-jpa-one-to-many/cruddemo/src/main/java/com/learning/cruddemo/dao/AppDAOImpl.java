@@ -68,10 +68,10 @@ public class AppDAOImpl implements AppDAO{
     }
 
     @Override
-    public List<Course> findCoursesByIntructorId(int theId) {
+    public List<Course> findCoursesByInstructorId(int theId) {
 
         // create query
-        TypedQuery<Course> query = entityManager.createQuery("FROM course WHERE instructor.id = :data", Course.class);
+        TypedQuery<Course> query = entityManager.createQuery("from Course where instructor.id = :data", Course.class);
 
         query.setParameter("data", theId);
 
