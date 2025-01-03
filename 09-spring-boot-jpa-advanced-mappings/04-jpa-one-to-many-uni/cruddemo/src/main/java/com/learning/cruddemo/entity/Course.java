@@ -67,7 +67,7 @@ public class Course {
 
     // add a convenience method
 
-    public void add(Review review){
+    public void addReview(Review review){
         if(reviews == null){
             reviews = new ArrayList<>();
         }
