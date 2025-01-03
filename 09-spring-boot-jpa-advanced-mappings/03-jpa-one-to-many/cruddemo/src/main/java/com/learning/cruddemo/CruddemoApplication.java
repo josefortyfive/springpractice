@@ -4,7 +4,6 @@ import com.learning.cruddemo.dao.AppDAO;
 import com.learning.cruddemo.entity.Course;
 import com.learning.cruddemo.entity.Instructor;
 import com.learning.cruddemo.entity.InstructorDetail;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,7 +30,9 @@ public class CruddemoApplication {
 			// findCoursesForInstructor(appDAO);
 			// findInstructorWithCoursesJoinFetch(appDAO);
 			// updateInstructor(appDAO);
-			updateCourse(appDAO);
+			// updateCourse(appDAO);
+
+			deleteInstructor(appDAO);
 		};
 	}
 
